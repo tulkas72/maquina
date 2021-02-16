@@ -2,7 +2,7 @@ package maquina;
 
 abstract public class MaquinaMecanica extends Maquina
 {
-    private Fuerza fuerzaMotriz;
+    protected Fuerza fuerzaMotriz;
     protected final static Fuerza DEFAULT_FUERZA_MOTRIZ=Fuerza.COMBUSTIBLE;
 
     public MaquinaMecanica(String marca, String modelo, Fuerza fuerzaMotriz) throws NullPointerException
@@ -21,8 +21,10 @@ abstract public class MaquinaMecanica extends Maquina
     {
         return fuerzaMotriz;
     }
+
     @Override
-    public String toString() {
+    public String toString()
+    {
         String toStringSuper = super.toString();
         return String.format("%s; Fuerza Motriz: %-10s }",
                 toStringSuper.substring(0, toStringSuper.length() - 2),

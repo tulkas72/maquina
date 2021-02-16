@@ -5,7 +5,7 @@ public abstract class Maquina
 
     private String marca;
     private String modelo;
-    private int numeroDeSerie;
+    protected int numeroDeSerie;
     static int cantidadDeMaquinasFabricadas=0;
 
     public Maquina(String marca, String modelo)
