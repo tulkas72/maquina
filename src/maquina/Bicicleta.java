@@ -56,7 +56,7 @@ public class Bicicleta extends MaquinaMecanica implements Desplazable
     public String toString()
     {
         String toStringSuper = super.toString();
-        return String.format("%s; Radio: %10d; Kilómetros: %10d }",
+        return String.format("%s; Radio: %10f; Kilómetros: %10f }",
                 toStringSuper.substring(0, toStringSuper.length() - 2),
                 radioRueda,totalKilometros);
     }

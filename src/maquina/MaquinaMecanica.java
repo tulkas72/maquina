@@ -8,8 +8,9 @@ abstract public class MaquinaMecanica extends Maquina
     public MaquinaMecanica(String marca, String modelo, Fuerza fuerzaMotriz) throws NullPointerException
     {
         super(marca, modelo);
+        if(fuerzaMotriz==null)
+            throw new NullPointerException("Error: null. La fuerza motriz no puede ser nula, debe indicarse una fuerza motriz válida.");
         this.fuerzaMotriz=fuerzaMotriz;
-        throw new NullPointerException("Error: null. La fuerza motriz no puede ser nula, debe indicarse una fuerza motriz válida.");
     }
 
     public MaquinaMecanica(String marca, String modelo )
