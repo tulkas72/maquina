@@ -34,7 +34,15 @@ public class Batidora extends MaquinaElectrica implements Enchufable
     }
 
     @Override
-    public String[] getPaisesCompatibles() {
+    public String[] getPaisesCompatibles()
+    {   //sabemos que si llegamos a esta función, la batidora se ha construido correctamente,
+        //con un voltaje de los permitidos-> sólo hace falta comprobar los compatibles
+        //por defecto ponemos los países compatibles con 110, si es otro voltaje se cambia en el switch
+        String[] paisesCompat=LISTA_PAISES_COMPATIBLES[0];
+        switch (getVoltaje())
+        { //no
+            case 120: paisesCompat=
+        }
         return new String[0];
     }
 }

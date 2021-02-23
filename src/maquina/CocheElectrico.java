@@ -1,6 +1,7 @@
 package maquina;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,11 +42,18 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
      * que no es necesario que sea público.
      *
      */
-    private final static String[][] LISTA_PAISES_COMPATIBLES = {
+    private final static String[][] LISTA_PAISES_COMPATIBLES =
+    {
             {"España", "Portugal"}, // 12 v.
             {"Francia", "Bélgica"}, // 24 v.
             {"Inglaterra"} // 48 v.
     };
+    private final static HashMap<Integer,String[]> l_paises_compatibles= new HashMap<>()
+    {{
+                put(12, new String[]{"España", "Portugal"});
+                put(24, new String[]{"Francia", "Bélgica"});
+                put(48, new String[]{"Inglaterra"});
+    }};
     public CocheElectrico(String marca, String modelo, Fuerza fuerzaMotriz) throws NullPointerException, IllegalArgumentException
     {
         super(marca, modelo, fuerzaMotriz);
