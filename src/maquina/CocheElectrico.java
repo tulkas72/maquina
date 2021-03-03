@@ -1,10 +1,8 @@
 package maquina;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 /**
  *
@@ -64,6 +62,7 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
 
         capacidadMaximaBateria=DEFAULT_CAPACIDAD_MAXIMA_BATERIA;
         voltajeBateria=DEFAULT_VOLTAJE;
+        autonomia=MIN_AUTONOMIA;
         this.numeroDeSerie=Maquina.cantidadDeMaquinasFabricadas;
         Maquina.cantidadDeMaquinasFabricadas++;
     }
@@ -143,12 +142,12 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
 
 
     @Override
-    public void desplazar(double Kilometros)
+    public void desplazar(double Kilometros) throws IllegalArgumentException
     {
         if(kms_con_carga_actual()<Kilometros)
         {
           throw new IllegalArgumentException(
-                  String.format("Error: Porcentaje de carga:%s. No es suficiente para recorrer%s kilómetros.",
+                  String.format("Error: Porcentaje de carga:%s. No es suficiente para recorrer %f kilómetros.",
                           cargaEfectiva, Kilometros));
         }
         super.desplazar(Kilometros);
@@ -156,12 +155,11 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
     }
 
     @Override
-    public String toString() {
-        return "CocheElectrico{" +
-                "kilometrosTotalesRecorridos=" + kilometrosTotalesRecorridos +
-                ", voltajeBateria=" + voltajeBateria +
-                ", capacidadMaximaBateria=" + capacidadMaximaBateria +
-                ", cargaEfectiva=" + cargaEfectiva +
-                "} " + super.toString();
+    public String toString()
+    {
+        return String.format("CocheElectrico {kilometrosTotalesRecorridos=%s, voltajeBateria=%d, " +
+                "capacidadMaximaBateria=%d, cargaEfectiva=%s} %s",
+                kilometrosTotalesRecorridos, voltajeBateria, capacidadMaximaBateria,
+                cargaEfectiva, super.toString());
     }
 }

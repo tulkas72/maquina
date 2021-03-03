@@ -52,7 +52,7 @@ public abstract class Coche extends MaquinaMecanica implements Desplazable
     }
 
     @Override
-    public void desplazar(double Kilometros)
+    public void desplazar(double Kilometros) throws IllegalArgumentException
     {
         if(Kilometros<0 || Kilometros>MAX_DESPLAZAMIENTO)
             throw new IllegalArgumentException(
@@ -67,7 +67,7 @@ public abstract class Coche extends MaquinaMecanica implements Desplazable
     public String toString()
     {
         String toStringSuper = super.toString();
-        return String.format("%s; Combustible: %s; Kilómetros: %10d }",
+        return String.format("%s; Combustible: %s; Kilómetros: %10f }",
                 toStringSuper.substring(0, toStringSuper.length() - 2),
                 combustible.toString(),kilometrosSinRepostar);
     }

@@ -49,7 +49,7 @@ abstract public class MaquinaElectrica extends Maquina
     public String toString()
     {
         String toStringSuper = super.toString();
-        return String.format("%s; Voltaje: %-10d ; Potencia: %-10d}",
+        return String.format("%s; Voltaje: %-10d ; Potencia: %-10f}",
                 toStringSuper.substring(0, toStringSuper.length() - 2),
                 this.getVoltaje(),this.getPotencia());
     }

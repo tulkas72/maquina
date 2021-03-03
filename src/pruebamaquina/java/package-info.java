@@ -5,4 +5,4 @@
  * 
  * @author Profesor PROG
  */
-package pruebamaquina;
+package pruebamaquina.java;

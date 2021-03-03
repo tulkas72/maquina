@@ -4,7 +4,7 @@ public class Calculadora extends MaquinaElectrica implements Recargable
 {
 
     TipoPila tipoPila; // Indica el tipo de pila que usa la calculadora de entre los disponibles en el tipo enumerado TipoPila, que se proporciona ya implementado, listo para usar.
-    double horasDeUso; //indica cuántas horas de uso lleva la calculadora desde el último cambio de pilas.
+    private double horasDeUso; //indica cuántas horas de uso lleva la calculadora desde el último cambio de pilas.
     boolean pilaAgotada;// De tipo lógico. Toma el valor true cuando la calculadora no tiene pila, o la tiene agotada (necesita una nueva pila), o false en otro caso.
     static int HORAS_DE_USO=100; //Constante de clase. Toda calculadora debe tener las pilas adecuadas para que cuando se le repongan permitan su uso durante  la cantidad de horas indicada en esta constante. Valor: 100 horas.
     static public TipoPila DEFAULT_TIPO_PILA=TipoPila.AA_1_5V; // Será el tipo de pila que por defecto se asigna a la calculadora en el momento de su fabricación, en este caso serán pilas AA de 1.5 voltios. (AA_1_5V)
@@ -50,7 +50,7 @@ public class Calculadora extends MaquinaElectrica implements Recargable
     public String toString()
     {
         String toStringSuper = super.toString();
-        return String.format("%s; Tipo de Pila: %-10s ; Potencia: %-10d}",
+        return String.format("%s; Tipo de Pila: %-10s ; Potencia: %-10f}",
                 toStringSuper.substring(0, toStringSuper.length() - 2),
                 tipoPila.toString(),HORAS_DE_USO-horasDeUso);
     }

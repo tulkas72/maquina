@@ -32,8 +32,8 @@ public class PruebaMaquina {
         System.out.println("+------------------------------------------------------+");
         System.out.println("| PRUEBAS DE LA JERARQUÍA DE CLASES DEL PAQUETE maquina |");
         System.out.println("+------------------------------------------------------+");
-        System.out.println();        
-        
+        System.out.println();
+
         //-------------------------------------------------------
         //           Creación de elementos de juego
         //-------------------------------------------------------
@@ -62,7 +62,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Bicicleta ("ORBEA", "Enana", Bicicleta.MIN_RADIO_RUEDA-1);  // Bicicleta con tamaño de radio menor que el mínimo (ERROR)
         }catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
          if(!error){
@@ -76,7 +76,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Bicicleta ("ORBEA", "Gigante", Bicicleta.MAX_RADIO_RUEDA+1);  // Bicicleta con tamaño de radio mayor que el máximo (ERROR)
         }catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
          if(!error){
@@ -90,7 +90,7 @@ public class PruebaMaquina {
        try{
           artefacto= new Bicicleta ("ORBEA", "Rallon", (Bicicleta.MIN_RADIO_RUEDA +Bicicleta.MAX_RADIO_RUEDA)/2);  // Bicicleta con tamaño de radio medio (CORRECTO)
         }catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
          if(!error){
@@ -119,7 +119,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Molino ("IBERDROLA", "Eficient",null);  // Molino con un tipo de fuerza motriz erróneo por ser null (ERROR)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -133,7 +133,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Molino ("IBERDROLA", "HidroPower",Fuerza.CORRIENTE_AGUA);  // Molino hidráulico con marca y modelo y fuerza motriz Corriente de agua. (CORRECTO)
         }catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
          if(!error){
@@ -150,7 +150,7 @@ public class PruebaMaquina {
         try{
            artefacto= new CocheElectrico ("", "",null,0,0,0);  // Coche Eléctrico con fuerza motriz nula. (ERROR)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -164,7 +164,7 @@ public class PruebaMaquina {
         try{
            artefacto= new CocheElectrico ("HYUNDAY", "Kona",Fuerza.COMBUSTIBLE,0,0,0);  // Coche Eléctrico con Fuerza motriz errónea.(ERROR)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -178,7 +178,7 @@ public class PruebaMaquina {
         try{
            artefacto= new CocheElectrico ("HYUNDAY", "Kona",Fuerza.ELECTRICIDAD,10,35,300);  // Coche Eléctrico con voltaje erróneo. (ERROR)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -192,7 +192,7 @@ public class PruebaMaquina {
         try{
            artefacto= new CocheElectrico ("HYUNDAY", "Kona",Fuerza.ELECTRICIDAD,24,40,300);  // Coche Eléctrico con capacidad máxima errónea. (ERROR)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -206,7 +206,7 @@ public class PruebaMaquina {
         try{
            artefacto= new CocheElectrico ("HYUNDAY", "Kona",Fuerza.ELECTRICIDAD,12,35,CocheElectrico.MIN_AUTONOMIA-1);  // Coche Eléctrico con autonomía menor de lo permitido. (ERROR)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -220,7 +220,7 @@ public class PruebaMaquina {
         try{
            artefacto= new CocheElectrico ("HYUNDAY", "Kona",Fuerza.ELECTRICIDAD,12,35,CocheElectrico.MAX_AUTONOMIA+1);  // Coche Eléctrico con autonomía mayor de lo permitido. (ERROR)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -234,7 +234,7 @@ public class PruebaMaquina {
         try{
            artefacto= new CocheElectrico ("HYUNDAY", "Kona",Fuerza.ELECTRICIDAD,12,35,(CocheElectrico.MIN_AUTONOMIA+CocheElectrico.MAX_AUTONOMIA)/2);  // Coche Eléctrico con autonomía media. (CORRECTO)
         } catch (NullPointerException | IllegalArgumentException npe){
-            System.out.printf(npe.getMessage()+"\n");
+            System.out.print(npe.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -251,7 +251,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Batidora ("", "",Batidora.DEFAULT_VOLTAJE_BATIDORA,Batidora.DEFAULT_POTENCIA_BATIDORA);  // Batidora sin marca ni modelo, y valores por defecto para voltaje y potencia (CORRECTO)
         } catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -265,7 +265,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Batidora ("PHILIPS", "Promix",Batidora.DEFAULT_VOLTAJE_BATIDORA,900.0);  // Batidora con potencia  errónea.(ERROR)
         } catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -278,7 +278,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Batidora ("PHILIPS", "Promix",100,Batidora.DEFAULT_POTENCIA_BATIDORA);  // Batidora con voltaje erróneo.(ERROR)
         } catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -292,7 +292,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Batidora ("PHILIPS", "Promix",Batidora.DEFAULT_VOLTAJE_BATIDORA,Batidora.DEFAULT_POTENCIA_BATIDORA);  // Batidora con voltaje  y potencia por defecto.(CORRECTO)
         } catch (IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -310,7 +310,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Calculadora ("", "",null);  // Calculadora con un tipo de pila nulo. (ERROR)
         } catch (NullPointerException | IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -324,7 +324,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Calculadora ("CASIO","FX-991SPXI",TipoPila.C_1_5V);  // Calculadora con el tipo de pila erróneo(ERROR)
         } catch (NullPointerException | IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -338,7 +338,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Calculadora ("CASIO","FX-991SPXI",Calculadora.DEFAULT_TIPO_PILA);  // Calculadora con tipo de pila correcto(CORRECTO)
         } catch (NullPointerException | IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -353,7 +353,7 @@ public class PruebaMaquina {
         try{
            artefacto= new Calculadora ("CASIO","FX-991SPXI",Calculadora.DEFAULT_TIPO_PILA, false);  // Calculadora con tipo de pila correcto, pero con la pila agotada(CORRECTO)
         } catch (NullPointerException | IllegalArgumentException iae){
-            System.out.printf(iae.getMessage()+"\n");
+            System.out.print(iae.getMessage()+"\n");
             error=true;
         }
         if(!error){
@@ -394,7 +394,9 @@ public class PruebaMaquina {
                 ((Desplazable)maq).desplazar(40.5);
                 System.out.printf ("Kilómetros recorridos sin repostar: %.2f, ", ((Desplazable)maq).getKilometrosSinRepostar());
                 System.out.printf ("Total Kilómetros: %.2f, ", ((Desplazable)maq).getTotalKilometrosRecorridos());
-            } catch (IllegalStateException | ClassCastException ex) {
+            }
+            catch ( IllegalStateException | ClassCastException ex)
+            {
                 String cadenaAMostrar=ex.getMessage();
                 cadenaAMostrar=cadenaAMostrar.substring(0,cadenaAMostrar.indexOf("(")-1)+".";
                 System.out.printf ("\nError. %s\n",
@@ -415,7 +417,7 @@ public class PruebaMaquina {
             try {
                 System.out.printf ("Consumir batería (para 50 unidades de consumo).  Restante: %.2f. ", ((Recargable)maq).usarBateria(50.0));
                 System.out.printf ("Estado: %s, ", ((Recargable)maq).toString());
-                System.out.printf ("Cargar batería:");
+                System.out.print("Cargar batería:");
                 ((Recargable)maq).cargar();
                 System.out.printf ("Estado: %s, ", ((Recargable)maq).toString());
             } catch (IllegalStateException | ClassCastException ex) {

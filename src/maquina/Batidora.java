@@ -58,6 +58,6 @@ public class Batidora extends MaquinaElectrica implements Enchufable
         String toStringSuper = super.toString();
         return String.format("%s; Países compatibles:%s}",
                 toStringSuper.substring(0, toStringSuper.length() - 2),
-                getPaisesCompatibles().toString());
+                 "[" + String.join(",", getPaisesCompatibles())+ "]"  );
     }
 }
