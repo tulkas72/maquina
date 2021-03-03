@@ -380,30 +380,8 @@ public class PruebaMaquina {
         //-------------------------------------------------------
         //       Prueba de métodos de la interfaz Desplazable
         //-------------------------------------------------------
-        System.out.println ("\n----------------------------------------");
-        System.out.println ("PRUEBA DE MÉTODOS DE LA INTERFAZ Desplazable");
-        System.out.println ("----------------------------------------");
-        indice=0;
-        for (Maquina maq: listaMaquinas) {
-            System.out.printf ("\nMáguina %d: %s\n",
-                    indice++, contenidoMaquina(maq));
-            try {
-                System.out.printf ("Kilómetros recorridos sin repostar: %.2f, ", ((Desplazable)maq).getKilometrosSinRepostar());
-                System.out.printf ("Total Kilómetros: %.2f, ", ((Desplazable)maq).getTotalKilometrosRecorridos());
-                System.out.print ( "Desplazar 40.5 km., ");
-                ((Desplazable)maq).desplazar(40.5);
-                System.out.printf ("Kilómetros recorridos sin repostar: %.2f, ", ((Desplazable)maq).getKilometrosSinRepostar());
-                System.out.printf ("Total Kilómetros: %.2f, ", ((Desplazable)maq).getTotalKilometrosRecorridos());
-            }
-            catch ( IllegalStateException | ClassCastException ex)
-            {
-                String cadenaAMostrar=ex.getMessage();
-                cadenaAMostrar=cadenaAMostrar.substring(0,cadenaAMostrar.indexOf("(")-1)+".";
-                System.out.printf ("\nError. %s\n",
-                        cadenaAMostrar);
-            }
-        }      
-        
+        pruebaInterfazDesplazable(listaMaquinas);
+
         //-------------------------------------------------------
         //       Prueba de métodos de la interfaz Recargable
         //-------------------------------------------------------
@@ -451,8 +429,35 @@ public class PruebaMaquina {
         
  //==========================================================================       
     }
-    
-     static void mostrarMaquinaCreada (Maquina artefacto) {
+
+    private static void pruebaInterfazDesplazable(Maquina[] listaMaquinas) {
+        int indice;
+        System.out.println ("\n----------------------------------------");
+        System.out.println ("PRUEBA DE MÉTODOS DE LA INTERFAZ Desplazable");
+        System.out.println ("----------------------------------------");
+        indice=0;
+        for (Maquina maq: listaMaquinas) {
+            System.out.printf ("\nMáguina %d: %s\n",
+                    indice++, contenidoMaquina(maq));
+            try {
+                System.out.printf ("Kilómetros recorridos sin repostar: %.2f, \n", ((Desplazable)maq).getKilometrosSinRepostar());
+                System.out.printf ("Total Kilómetros: %.2f, \n", ((Desplazable)maq).getTotalKilometrosRecorridos());
+                System.out.print ( "Desplazar 40.5 km., \n");
+                ((Desplazable)maq).desplazar(40.5);
+                System.out.printf ("Kilómetros recorridos sin repostar: %.2f, \n", ((Desplazable)maq).getKilometrosSinRepostar());
+                System.out.printf ("Total Kilómetros: %.2f, \n", ((Desplazable)maq).getTotalKilometrosRecorridos());
+            }
+            catch ( IllegalStateException | ClassCastException ex)
+            {
+                String cadenaAMostrar=ex.getMessage();
+                cadenaAMostrar=cadenaAMostrar.substring(0,cadenaAMostrar.indexOf("(")-1)+".";
+                System.out.printf ("\nError. %s\n",
+                        cadenaAMostrar);
+            }
+        }
+    }
+
+    static void mostrarMaquinaCreada (Maquina artefacto) {
         System.out.printf ("Máquina creada %s\n", 
                 contenidoMaquina (artefacto));        
     }

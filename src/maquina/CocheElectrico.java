@@ -146,8 +146,10 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
     {
         if(kms_con_carga_actual()<Kilometros)
         {
-          throw new IllegalArgumentException(
-                  String.format("Error: Porcentaje de carga:%s. No es suficiente para recorrer %f kilómetros.",
+          throw
+            new IllegalArgumentException(
+            String.format("Error: Porcentaje de carga:%s. " +
+                           "No es suficiente para recorrer %f kilómetros.",
                           cargaEfectiva, Kilometros));
         }
         super.desplazar(Kilometros);
