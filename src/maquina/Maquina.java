@@ -12,8 +12,6 @@ public abstract class Maquina
     {
         this.marca = marca;
         this.modelo = modelo;
-        numeroDeSerie=Maquina.cantidadDeMaquinasFabricadas;
-        Maquina.cantidadDeMaquinasFabricadas++;
     }
 
     public String getMarca()

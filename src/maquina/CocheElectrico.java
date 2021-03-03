@@ -19,8 +19,8 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
     private int DEFAULT_CAPACIDAD_MAXIMA_BATERIA=100; // Capacidad máxima por defecto de la batería de un Coche Eléctrico. Valor: 100 kWh.
     private int DEFAULT_POTENCIA=100_000; //Potencia por defecto de un Coche Eléctrico. Valor: 100.000 W.
     private double DEFAULT_CARGA_EFECTIVA; // Carga efectiva por defecto para un Coche Eléctrico. Se entiende que la  carga efectiva va a ser siempre la mitad de la capacidad máxima de la batería, por lo que los coches saldrán de fábrica siempre con la batería a media carga. Por tanto, su valor se calculará siempre a partir de la capacidad máxima de la batería indicada anteriormente. ¿Por qué lo almacenamos entonces aparte, si puede calcularse? Porque estas son las reglas de fabricación actuales, pero en el futuro se puede decidir que el coche salga de fábrica completamente cargado, o completamente descargado, o con una cantidad concreta de carga... Así que mejor dejar el código preparado para actualizar ese valor por defecto de manera cómoda.
-    private int MIN_AUTONOMIA=300; // La autonomía mínima permitida que se podrá asignar a un Coche Eléctrico. Valor: 300 kilómetros sin repostar/recargar.
-    private int MAX_AUTONOMIA=600; // La autonomía máxima permitida que se podrá asignar a un Coche Eléctrico. Valor: 600 kilómetros sin repostar/recargar.
+    public static int MIN_AUTONOMIA=300; // La autonomía mínima permitida que se podrá asignar a un Coche Eléctrico. Valor: 300 kilómetros sin repostar/recargar.
+    public static int MAX_AUTONOMIA=600; // La autonomía máxima permitida que se podrá asignar a un Coche Eléctrico. Valor: 600 kilómetros sin repostar/recargar.
     private int DEFAULT_VOLTAJE=24;
     private HashSet<Integer> voltajes_permitidos = new HashSet<>() {{
         add(12);
@@ -64,6 +64,7 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
 
         capacidadMaximaBateria=DEFAULT_CAPACIDAD_MAXIMA_BATERIA;
         voltajeBateria=DEFAULT_VOLTAJE;
+        this.numeroDeSerie=Maquina.cantidadDeMaquinasFabricadas;
         Maquina.cantidadDeMaquinasFabricadas++;
     }
 
@@ -155,27 +156,12 @@ public class CocheElectrico extends Coche implements Recargable, Enchufable
     }
 
     @Override
-    public String toString()
-    {
-        String toStringSuper = super.toString();
-        String paisesCompat="";
-        switch (voltajeBateria)
-        {
-            case 12:
-                paisesCompat+=new String(LISTA_PAISES_COMPATIBLES[0][0]+" "+LISTA_PAISES_COMPATIBLES[0][1]);
-                break;
-            case 24:
-                paisesCompat+=new String(LISTA_PAISES_COMPATIBLES[1][0]+" "+LISTA_PAISES_COMPATIBLES[1][1]);
-                break;
-            case 48:
-                paisesCompat+=new String(LISTA_PAISES_COMPATIBLES[2][0]+" "+LISTA_PAISES_COMPATIBLES[2][1]);
-                break;
-        }
-        return String.format("%s; Kilometraje: %10d; Voltaje: %3d; Capacidad Batería %3d; Carga Efectiva: %3d" +
-                        "Países compatibles: %15s }",
-                toStringSuper.substring(0, toStringSuper.length() - 2),
-                getTotalKilometrosRecorridos(),voltajeBateria,capacidadMaximaBateria,cargaEfectiva,paisesCompat);
+    public String toString() {
+        return "CocheElectrico{" +
+                "kilometrosTotalesRecorridos=" + kilometrosTotalesRecorridos +
+                ", voltajeBateria=" + voltajeBateria +
+                ", capacidadMaximaBateria=" + capacidadMaximaBateria +
+                ", cargaEfectiva=" + cargaEfectiva +
+                "} " + super.toString();
     }
-
-
 }

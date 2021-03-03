@@ -7,8 +7,8 @@ public class Bicicleta extends MaquinaMecanica implements Desplazable
 
 
     static double DEFAULT_RADIO_RUEDA=33.0;
-    static double MIN_RADIO_RUEDA= 17.75;
-    static double MAX_RADIO_RUEDA=36.85;
+    public static double MIN_RADIO_RUEDA= 17.75;
+    public static double MAX_RADIO_RUEDA=36.85;
     static double MAX_DESPLAZAMIENTO=200; //sin paradas
 
 

@@ -7,7 +7,7 @@ public class Calculadora extends MaquinaElectrica implements Recargable
     double horasDeUso; //indica cuántas horas de uso lleva la calculadora desde el último cambio de pilas.
     boolean pilaAgotada;// De tipo lógico. Toma el valor true cuando la calculadora no tiene pila, o la tiene agotada (necesita una nueva pila), o false en otro caso.
     static int HORAS_DE_USO=100; //Constante de clase. Toda calculadora debe tener las pilas adecuadas para que cuando se le repongan permitan su uso durante  la cantidad de horas indicada en esta constante. Valor: 100 horas.
-    TipoPila DEFAULT_TIPO_PILA=TipoPila.AA_1_5V; // Será el tipo de pila que por defecto se asigna a la calculadora en el momento de su fabricación, en este caso serán pilas AA de 1.5 voltios. (AA_1_5V)
+    static public TipoPila DEFAULT_TIPO_PILA=TipoPila.AA_1_5V; // Será el tipo de pila que por defecto se asigna a la calculadora en el momento de su fabricación, en este caso serán pilas AA de 1.5 voltios. (AA_1_5V)
     boolean DEFAULT_PILA_AGOTADA=true; //Por defecto la calculadora estará sin pilas, así que se considera que la pila está agotada, ya que necesita que se le introduzca una nueva pila. Valor por defecto: true.
 
     public Calculadora(String marca, String modelo, TipoPila tipoPila) throws NullPointerException,IllegalArgumentException
@@ -22,6 +22,9 @@ public class Calculadora extends MaquinaElectrica implements Recargable
         this.tipoPila=tipoPila;
         pilaAgotada=DEFAULT_PILA_AGOTADA;
         horasDeUso=0;
+        numeroDeSerie=cantidadDeMaquinasFabricadas;
+        Maquina.cantidadDeMaquinasFabricadas++;
+
     }
 
     public Calculadora(String marca, String modelo, TipoPila tipoPila, boolean pilaAgotada)

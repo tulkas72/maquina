@@ -67,7 +67,7 @@ public abstract class Coche extends MaquinaMecanica implements Desplazable
     public String toString()
     {
         String toStringSuper = super.toString();
-        return String.format("%s; Combustible: %10s; Kilómetros: %10f }",
+        return String.format("%s; Combustible: %s; Kilómetros: %10d }",
                 toStringSuper.substring(0, toStringSuper.length() - 2),
                 combustible.toString(),kilometrosSinRepostar);
     }
